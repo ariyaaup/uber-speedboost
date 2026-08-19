@@ -1,0 +1,327 @@
+/* Skema Warna Nexus ORCA (DARK MODE + SMOKE EFFECT) */
+:root {
+    /* Palet Warna Dark Mode */
+    --orca-dark: #030811;     /* Background Paling Gelap */
+    --orca-blue: #247BA0;     /* Biru Terang Nexus */
+    --orca-light-blue: #63A4C7; /* Biru Aksen Teks */
+    --orca-white: #E8F1F8;    /* Putih Teks */
+    
+    /* Warna Kotak transparan (Glassmorphism) */
+    --node-bg: rgba(10, 25, 47, 0.65); 
+    --node-border: rgba(36, 123, 160, 0.3);
+    
+    /* Gradasi Tombol */
+    --nexus-gradient: linear-gradient(135deg, #0A2463 0%, #247BA0 100%);
+    
+    /* Teks */
+    --text-main: #E8F1F8;
+    --text-muted: #8AA6C1;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* =========================================
+   BACKGROUND LOGO & EFEK SMOKE
+   ========================================= */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--orca-dark);
+    color: var(--text-main);
+    line-height: 1.6;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Layer 1: Logo Nexus (Silakan ganti url dengan nama file logo kamu) */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* GANTI NAMA FILE DI BAWAH INI SESUAI LOGO KAMU */
+    background-image: url('/assets/logo_nexus.png');
+    background-size: 50%; /* Sesuaikan ukuran logo (bisa ubah ke cover atau contain) */
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.15; /* Tingkat transparansi logo */
+    filter: blur(1px); /* Sedikit blur agar tidak mengganggu teks */
+    z-index: -2;
+    pointer-events: none;
+}
+
+/* Layer 2: Efek Smoke (Vignette gelap di pinggir, agak terang di tengah) */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(3,8,17,0.3) 0%, rgba(3,8,17,0.95) 100%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* =========================================
+   KONTEN UTAMA & BAGAN
+   ========================================= */
+.container {
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 1; /* Pastikan konten ada di atas background */
+}
+
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 5px;
+    background: var(--nexus-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 800;
+    /* Memberi shadow pada teks gradasi agar lebih terbaca di bg gelap */
+    filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.5));
+}
+
+p.subtitle {
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* Desain Node / Kotak bergaya Glassmorphism */
+.node {
+    background: var(--node-bg);
+    backdrop-filter: blur(10px); /* Efek Kaca */
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--node-border);
+    border-top: 4px solid var(--orca-blue);
+    border-radius: 10px;
+    padding: 25px;
+    margin: 0 auto;
+    width: 80%;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease, transform 0.5s ease;
+}
+
+.node:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(36, 123, 160, 0.2);
+    border-color: var(--orca-blue);
+}
+
+.node h3 {
+    color: var(--orca-light-blue);
+    margin-bottom: 15px;
+    font-size: 1.25rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.node ul {
+    text-align: left;
+    margin-left: 20px;
+    color: var(--orca-white);
+    font-size: 0.95rem;
+}
+
+.node li {
+    margin-bottom: 8px;
+}
+
+/* Penanda Taktik Sabotase Nexus */
+.sabotage {
+    border-left: 5px solid var(--orca-blue);
+    border-top: 1px solid var(--node-border); 
+}
+
+.arrow {
+    font-size: 26px;
+    color: var(--orca-blue);
+    margin: 15px 0;
+    transition: opacity 0.5s ease;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(36, 123, 160, 0.5);
+}
+
+/* Layout Simetris untuk Percabangan */
+.split {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 15px;
+}
+
+.split-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+.split .node {
+    width: 100%;
+    height: 100%;
+}
+
+/* Styling Kotak Hasil (Outcome) */
+.outcome {
+    background: var(--nexus-gradient);
+    border: none;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.outcome h3, .outcome ul, .outcome p {
+    color: #ffffff;
+}
+
+/* Kemungkinan 3: Perang Bisnis */
+.outcome.danger {
+    background: linear-gradient(135deg, #4A0E17 0%, #801222 100%);
+    border-top: 4px solid #ff4d4d;
+}
+
+/* Kemungkinan 2: Bertahan */
+.outcome.success {
+    background: linear-gradient(135deg, #104C33 0%, #1A7A52 100%);
+    border-top: 4px solid #00ff88;
+}
+
+/* Kelas untuk efek animasi */
+.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* =========================================
+   LAYAR INTRO & TOMBOL BERGERAK
+   ========================================= */
+#intro-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Background intro semi-transparan agar logo tetap tembus */
+    background: rgba(3, 8, 17, 0.85);
+    background-image: url('/assets/logo_nexus.png');
+    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+
+#intro-screen h1 {
+    font-size: 3rem;
+    text-align: center;
+}
+
+.intro-subtitle {
+    color: var(--orca-light-blue);
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+#intro-screen p {
+    color: var(--orca-white);
+    text-align: center;
+}
+
+.button-container {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 350px;
+    justify-content: center;
+    height: 60px;
+}
+
+.btn {
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary {
+    background: var(--nexus-gradient);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(36, 123, 160, 0.4);
+    z-index: 2;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(36, 123, 160, 0.6);
+}
+
+.btn-evasive {
+    background: grey;
+    color: var(--orca-white);
+    border: 2px solid var(--orca-white);
+    position: absolute;
+    transition: all 0.2s ease-in-out;
+    z-index: 3;
+}
+
+/* =========================================
+   RESPONSIVITAS (MOBILE FRIENDLY)
+   ========================================= */
+@media (max-width: 768px) {
+    body {
+        padding: 20px 10px;
+    }
+
+    body::before {
+        background-size: 80%; /* Logo lebih besar di HP */
+    }
+
+    #intro-screen h1 {
+        font-size: 2rem;
+        padding: 0 20px;
+    }
+
+    .intro-subtitle {
+        font-size: 1rem;
+        padding: 0 20px;
+    }
+
+    .node {
+        width: 95%; /* Kotak lebih lebar di HP */
+        padding: 20px 15px;
+    }
+
+    .split {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .split-item {
+        width: 100%;
+    }
+}

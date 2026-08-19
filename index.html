@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS RP Project</title>
+    <link pavicon rel="icon" href="/assets/logo_nexus.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Layar Pembuka / Otorisasi -->
+    <div id="intro-screen">
+        <h1 class="glitch-text">OI Selamat datang di Sistem Otoritas NEXUS ORCA</h1>
+        <p class="intro-subtitle">Sabotase siap dilaksanakan, tapi sebelum itu....</p>
+        <p>Lu mau lanjut kaga?</p>
+        
+        <div class="button-container">
+            <button id="btn-yes" class="btn btn-primary">WT KACUNG BOT</button>
+            <button id="btn-no" class="btn btn-evasive">White TIGER ROR?</button>
+        </div>
+    </div>
+
+    <!-- Konten Bagan Utama (Disembunyikan di awal) -->
+    <div id="main-content" style="display: none;">
+        <div class="container">
+            <h1>Bagan Strategi Nexus</h1>
+            <p class="subtitle">Operasi Psikologis & Manipulasi Supply-Demand</p>
+
+            <!-- Tahap 1 -->
+            <div class="node hidden">
+                <h3>Awal Konflik</h3>
+                <p>Dominasi Supply Ammo (Nexus vs WT)</p>
+            </div>
+
+            <div class="arrow hidden">↓</div>
+
+            <!-- Tahap 2 -->
+            <div class="node sabotage hidden">
+                <h3>Strategi Nexus: "The Gentleman Saboteur"</h3>
+                <ul>
+                    <li><strong>Bersikap Kooperatif:</strong> Arahkan semua konsumen untuk meminta supply penuh ke WT.</li>
+                    <li><strong>Tutup Informasi:</strong> Jangan berikan data asli kuota supply Nexus kepada WT.</li>
+                    <li><strong>Sabotase Halus:</strong> Hasut kelompok lain untuk me-markup permintaan (Misal: biasa dapat 50, instruksikan minta 100 atau 150 ke WT).</li>
+                </ul>
+            </div>
+
+            <div class="arrow hidden">↓</div>
+
+            <!-- Tahap 3 -->
+            <div class="node hidden">
+                <h3>Fase Tekanan</h3>
+                <p>Beban pasar sepenuhnya pindah ke pundak WT. WT menghadapi lonjakan permintaan masif tanpa tahu angka kebutuhan asli kota.</p>
+            </div>
+
+            <!-- Percabangan Simetris -->
+            <div class="split">
+                <!-- Cabang Kiri: Gagal -->
+                <div class="split-item">
+                    <div class="arrow hidden">↙</div>
+                    <div class="node hidden">
+                        <h3>Jika WT Gagal Memenuhi Kuota</h3>
+                        <ul>
+                            <li>Konsumen kecewa dan komplain.</li>
+                            <li>Masalah dibawa ke HT via RP.</li>
+                            <li>Nexus cuci tangan: "Kami cuma mengarahkan, bukan menyuruh menghukum."</li>
+                            <li>Nexus diam-diam menawarkan alternatif supply.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="arrow hidden">↓</div>
+                    
+                    <div class="node outcome hidden">
+                        <h3>Kemungkinan 1: Menyerah</h3>
+                        <p>WT sadar tidak sanggup menanggung pasar dan kembali negosiasi. Konflik usai via diplomasi.</p>
+                    </div>
+                    
+                    <div class="arrow hidden">↓</div>
+
+                    <div class="node outcome danger hidden">
+                        <h3>Kemungkinan 3: Perang Bisnis</h3>
+                        <p>WT sadar disabotase dan memilih konfrontasi terbuka (Perang supply, jalanan, dan pengaruh). Nexus siap bertempur.</p>
+                    </div>
+                </div>
+
+                <!-- Cabang Kanan: Berhasil -->
+                <div class="split-item">
+                    <div class="arrow hidden">↘</div>
+                    <div class="node hidden">
+                        <h3>Jika WT Berhasil Memenuhi Kuota</h3>
+                        <ul>
+                            <li>WT menguasai seluruh jalur supply pasar.</li>
+                            <li>Ekspektasi konsumen terhadap WT menjadi standar baru yang sangat tinggi.</li>
+                        </ul>
+                    </div>
+
+                    <div class="arrow hidden">↓</div>
+
+                    <div class="node outcome success hidden">
+                        <h3>Kemungkinan 2: Bertahan</h3>
+                        <p>Nexus kehilangan pengaruh politik sementara, namun mendapat reputasi tak tergoyahkan sebagai pihak yang berani bersaing terbuka secara sportif.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
